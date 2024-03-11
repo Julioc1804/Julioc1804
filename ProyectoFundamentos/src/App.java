@@ -57,6 +57,7 @@ public class App {
                 System.out.println(rojo + "|" + "________________________________________" + "|" + reset);
                 opcionMen = Integer.parseInt(lectorTeclado.nextLine());
             }
+
             static void menuDepartamento(){ 
                 boolean mostrarmenu1 = false;
                 while (!mostrarmenu1) {
@@ -66,20 +67,55 @@ public class App {
                     System.out.println("3.Departamento de Jardinería");
                     System.out.println("4.Volver al menú principal");
                     int opcion = Integer.parseInt(lectorTeclado.nextLine());
+                    
                     if (opcion == 1) {
                     System.out.println("BIENVENIDO AL DEPARTAMENTO DE HOGAR");
+                    System.out.println("A continuación le mostramos los productos disponibles");
+                    String[] hogar = new String[7]; 
+                    hogar[0] = "Sartén";
+                    hogar[1] = "Ollas";
+                    hogar[2] = "Cubiertos"; 
+                    hogar[3] = "Cortinas";
+                    hogar[4] = "Alfombras"; 
+                    hogar[5] = "Lámpara"; 
+                    hogar[6] = "Toallas"; 
+                    for(int i = 0; i < hogar.length; i++){
+                    System.out.println(hogar[i]);
+                    }
                     }else if (opcion == 2){
                     System.out.println("BIENVENIDO AL DEPARTAMENTO DE CONSTRUCCIÓN");
+                    String[] construccion = new String[7]; 
+                    construccion[0] = "Cemento";
+                    construccion[1] = "Clavos"; 
+                    construccion[2] = "Pinturas"; 
+                    construccion[3] = "Madera"; 
+                    construccion[4] = "Acero"; 
+                    construccion[5] = "Taladro"; 
+                    construccion[6] = "Tornillos"; 
+                    for(int i = 0; i < construccion.length; i++){
+                    System.out.println(construccion[i]);
+                    }
                     }else if (opcion == 3) {
                     System.out.println("BIENVENIDO AL DEPARTAMENTO DE JARDINERÍA");
+                    String[] jardineria = new String[7]; 
+                    jardineria[0] = "Palas";
+                    jardineria[1] = "Tierra"; 
+                    jardineria[2] = "Abono";
+                    jardineria[3] = "Insecticida";
+                    jardineria[4] = "Plantas"; 
+                    jardineria[5] = "Piedras"; 
+                    jardineria[6] = "Macetas";
+                    for(int i = 0; i < jardineria.length; i++){
+                    System.out.println(jardineria[i]);
+                    }
                     }else if (opcion == 4) {
                     System.out.println("DEVOLVIÉNDOSE AL MENÚ PRINCIPAL");
                     mostrarmenu1= true; 
                     }
-                    }
+                }
             }
 
-            public static void agregarProducto(){
+            static void agregarProducto(){
                 boolean mostrarMenu2 = false;
                 while (!mostrarMenu2) {
                     System.out.println("FAVOR INSERTE EL NOMBRE DEL PRODUCTO A AGREGAR:");
@@ -111,7 +147,7 @@ public class App {
                     }
             }
 
-            public static void salirMenu(){
+            static void salirMenu(){
             mostrarmenuPrincipal = true;
             System.out.println("Gracias por Visitar Nuestra Página");
             }
