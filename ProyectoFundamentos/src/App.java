@@ -114,7 +114,7 @@ public class App {
                     mostrarMenuDepartamento = false;
                 }else if (opcion == 4) {
                     System.out.println("DEVOLVIÉNDOSE AL MENÚ PRINCIPAL");
-                    mostrarMenuDepartamento= true; 
+                    mostrarMenuDepartamento= false; 
                     }
                 }
             }
