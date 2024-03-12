@@ -59,8 +59,8 @@ public class App {
             }
 
             static void menuDepartamento(){ 
-                boolean mostrarmenu1 = false;
-                while (!mostrarmenu1) {
+                boolean mostrarMenuDepartamento = true;
+                while (mostrarMenuDepartamento) {
                     System.out.println("BIENVENIDO A CONTINUACIÓN LE MOSTRAMOS LOS DEPARTAMENTOS DISPONIBLES");
                     System.out.println("1.Departamento de Hogar:");
                     System.out.println("2.Departamento de Construcción");
@@ -82,7 +82,9 @@ public class App {
                     for(int i = 0; i < hogar.length; i++){
                     System.out.println(hogar[i]);
                     }
-                    }else if (opcion == 2){
+                    
+                mostrarMenuDepartamento = false;
+            }else if (opcion == 2){
                     System.out.println("BIENVENIDO AL DEPARTAMENTO DE CONSTRUCCIÓN");
                     String[] construccion = new String[7]; 
                     construccion[0] = "Cemento";
@@ -95,7 +97,8 @@ public class App {
                     for(int i = 0; i < construccion.length; i++){
                     System.out.println(construccion[i]);
                     }
-                    }else if (opcion == 3) {
+                    mostrarMenuDepartamento = false; 
+                }else if (opcion == 3) {
                     System.out.println("BIENVENIDO AL DEPARTAMENTO DE JARDINERÍA");
                     String[] jardineria = new String[7]; 
                     jardineria[0] = "Palas";
@@ -108,9 +111,10 @@ public class App {
                     for(int i = 0; i < jardineria.length; i++){
                     System.out.println(jardineria[i]);
                     }
-                    }else if (opcion == 4) {
+                    mostrarMenuDepartamento = false;
+                }else if (opcion == 4) {
                     System.out.println("DEVOLVIÉNDOSE AL MENÚ PRINCIPAL");
-                    mostrarmenu1= true; 
+                    mostrarMenuDepartamento= true; 
                     }
                 }
             }
