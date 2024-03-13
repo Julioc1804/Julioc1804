@@ -3,10 +3,8 @@ import java.util.Scanner;
 public class App {
     static Scanner lectorTeclado = new Scanner(System.in); 
     static String prodBuscar; 
-    static String nombreProd; 
-    static int cantProd; 
-    static double precioProd; 
     static int opcionMen; 
+    static int opcion; 
     static boolean mostrarmenuPrincipal = false;
     static String reset = "\u001B[0m";
     static String rojo = "\u001B[31m"; 
@@ -15,7 +13,7 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         while (!mostrarmenuPrincipal) {
-            opciones();;
+            opciones();
             
             switch (opcionMen) {
             case 1:
@@ -23,24 +21,19 @@ public class App {
             break;
 
             case 2:
-            agregarProducto();
-            break;
-
-            case 3:
             buscarProducto();
             break;
 
-            case 4:
+            case 3:
             salirMenu();
             break;
 
             default:
             System.out.println("Opción no válida. Por favor, intente de nuevo.");
             break;
-
             }
-            }
-            }
+        }
+    }
 
 
             //SECCIÓN DE MÉTODOS CREADOS
@@ -51,22 +44,21 @@ public class App {
                 System.out.println(rojo + "|" + amararillo + "-----------" + reset + "¿Que desea realizar?" + amararillo + "---------" + rojo + "|" + reset);
                 System.out.println(rojo + "|" + amararillo + "----------------------------------------" + rojo + "|" + reset);
                 System.out.println(rojo + "|" + amararillo + "----" + reset + "1.Ver Departamentos de Productos" + amararillo + "----" + rojo + "|" + reset);
-                System.out.println(rojo + "|" + amararillo + "------------" + reset + "2.Agregar Productos" + amararillo + "---------" + rojo + "|" + reset);
-                System.out.println(rojo + "|" + amararillo + "-------------" + reset + "3.Buscar Productos" + amararillo + "---------" + rojo + "|" + reset);
-                System.out.println(rojo + "|" + amararillo + "------------" + reset + "4.Salir del Sistema" + amararillo + "---------" + rojo + "|" + reset);
+                System.out.println(rojo + "|" + amararillo + "-------------" + reset + "2.Buscar Productos" + amararillo + "---------" + rojo + "|" + reset);
+                System.out.println(rojo + "|" + amararillo + "------------" + reset + "3.Salir del Sistema" + amararillo + "---------" + rojo + "|" + reset);
                 System.out.println(rojo + "|" + "________________________________________" + "|" + reset);
                 opcionMen = Integer.parseInt(lectorTeclado.nextLine());
             }
 
             static void menuDepartamento(){ 
-                boolean mostrarMenuDepartamento = true;
-                while (mostrarMenuDepartamento) {
+                boolean mostrarmenu1 = false; 
+                while (!mostrarmenu1) {
                     System.out.println("BIENVENIDO A CONTINUACIÓN LE MOSTRAMOS LOS DEPARTAMENTOS DISPONIBLES");
                     System.out.println("1.Departamento de Hogar:");
                     System.out.println("2.Departamento de Construcción");
                     System.out.println("3.Departamento de Jardinería");
                     System.out.println("4.Volver al menú principal");
-                    int opcion = Integer.parseInt(lectorTeclado.nextLine());
+                    opcion = Integer.parseInt(lectorTeclado.nextLine());
                     
                     if (opcion == 1) {
                     System.out.println("BIENVENIDO AL DEPARTAMENTO DE HOGAR");
@@ -81,10 +73,8 @@ public class App {
                     hogar[6] = "Toallas"; 
                     for(int i = 0; i < hogar.length; i++){
                     System.out.println(hogar[i]);
-                    }
-                    
-                mostrarMenuDepartamento = false;
-            }else if (opcion == 2){
+                    } 
+                    }else if (opcion == 2){
                     System.out.println("BIENVENIDO AL DEPARTAMENTO DE CONSTRUCCIÓN");
                     String[] construccion = new String[7]; 
                     construccion[0] = "Cemento";
@@ -97,8 +87,7 @@ public class App {
                     for(int i = 0; i < construccion.length; i++){
                     System.out.println(construccion[i]);
                     }
-                    mostrarMenuDepartamento = false; 
-                }else if (opcion == 3) {
+                    }else if (opcion == 3) {
                     System.out.println("BIENVENIDO AL DEPARTAMENTO DE JARDINERÍA");
                     String[] jardineria = new String[7]; 
                     jardineria[0] = "Palas";
@@ -111,30 +100,11 @@ public class App {
                     for(int i = 0; i < jardineria.length; i++){
                     System.out.println(jardineria[i]);
                     }
-                    mostrarMenuDepartamento = false;
-                }else if (opcion == 4) {
+                    }else if (opcion == 4) {
                     System.out.println("DEVOLVIÉNDOSE AL MENÚ PRINCIPAL");
-                    mostrarMenuDepartamento= false; 
+                    mostrarmenu1 = true; 
                     }
                 }
-            }
-
-            static void agregarProducto(){
-                boolean mostrarMenu2 = false;
-                while (!mostrarMenu2) {
-                    System.out.println("FAVOR INSERTE EL NOMBRE DEL PRODUCTO A AGREGAR:");
-                    nombreProd = lectorTeclado.nextLine();
-                    System.out.println("FAVOR INGRESE LA CANTIDAD DE PRODUCTO");
-                    cantProd = Integer.parseInt(lectorTeclado.nextLine());
-                    System.out.println("FAVOR INSERTE EL PRECIO DEL PRODUCTO A AGREGAR:");
-                    precioProd = Double.parseDouble(lectorTeclado.nextLine());
-                    System.out.println("1.Agregar otro producto");
-                    System.out.println("4.Volver al menú principal");
-                    int opcion = Integer.parseInt(lectorTeclado.nextLine());
-                    if (opcion == 4) {
-                    mostrarMenu2 = true;
-                    }
-                    }
             }
 
             static void buscarProducto(){
